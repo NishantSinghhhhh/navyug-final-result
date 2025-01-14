@@ -99,7 +99,7 @@ const Dashboard: React.FC = () => {
                         Student Name
                       </th>
                       <th className="px-6 py-4 text-center text-sm font-semibold text-white uppercase tracking-wider">
-                        Category
+                        Category     
                       </th>
                     </tr>
                   </thead>
