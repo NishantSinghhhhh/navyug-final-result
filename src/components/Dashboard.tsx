@@ -63,9 +63,8 @@ const Dashboard: React.FC = () => {
         return Math.max(min, ...contentWidths, headers[index].length + 3);
       });
 
-      // Generate table content with dynamic category in the message
       const tableContent = [
-        `We are delighted to announce that ${schoolName} secured the ${school.tag} rank in ${categoryText} at Navyug 2024-25. This remarkable achievement is a testament to the dedication and hard work of our students and faculty. We extend our heartfelt congratulations and best wishes for your continued success in all future endeavors`,
+        `We are delighted to take this opportunity to commend the remarkable efforts to the students from  ${schoolName} in the  ${categoryText} for their outstanding project at Navyug 2024-25. Their exceptional work has earned them a special mention, recognizing their innovative approach and dedication.`,
         createTableBorder(widths.reduce((a, b) => a + b, 3)),
         createTableRow(headers, widths),
         createTableBorder(widths.reduce((a, b) => a + b, 3)),
@@ -78,7 +77,7 @@ const Dashboard: React.FC = () => {
           ], widths)
         ),
         createTableBorder(widths.reduce((a, b) => a + b, 3)),
-        "Achieving such a remarkable milestone at a young age is truly inspiring and a testament to your hard work, dedication, and exceptional talent. It’s not every day that we witness someone accomplish so much in such a short span of time, setting a brilliant example for others to follow. This feat reflects not only your passion and perseverance but also your ability to dream big and make those dreams a reality. Congratulations on this outstanding achievement—it’s a shining reminder that age is no barrier to success and that the best is yet to come",
+        "Their dedication and creativity in tackling ",
       ].join("\n");
 
       // Create and download the file
@@ -126,14 +125,14 @@ const Dashboard: React.FC = () => {
   
     // Break message into segments with their styles
     const segments = [
-      { text: "We are delighted to announce that ", highlight: false },
+      { text: "We are delighted to take this opportunity to commend the remarkable efforts of the students from ", highlight: false },
       { text: schoolName, highlight: true },
-      { text: " secured ", highlight: false },
-      { text: formatTag(tag), highlight: true },  // Use formatted tag here
-      { text: " position ", highlight: true },
       { text: " in ", highlight: false },
       { text: categoryText, highlight: true },
-      { text: " at Navyug 2024-25. This remarkable achievement is a testament to the dedication and hard work of our students and faculty. We extend our heartfelt congratulations and best wishes for your continued success in all future endeavors!", highlight: false }
+      { text: " for their outstanding project for Navyug 2024-25. Their exceptional work has earned them a ", highlight: false },
+      { text: "special mention,", highlight: true },
+      { text: " recognizing their innovative approach and dedication", highlight: false },
+     
     ];
   
     let currentX = margin;
@@ -327,10 +326,10 @@ const Dashboard: React.FC = () => {
   );
     yPos += 10
     // Footer
-    const footerYPos = yPos + 30;
+    const footerYPos = yPos + 5;
     pdf.setFont("helvetica", "normal");
     pdf.setFontSize(12);
-    const message1 = `Achieving such a remarkable milestone at a young age is truly inspiring and a testament to your hard work, dedication, and exceptional talent. Such achievements in such a short time are extraordinary and serve as an inspiration to everyone and make those dreams a reality. Congratulations on this outstanding achievement—it’s a shining reminder that age is no barrier to success and that the best is yet to come!`;
+    const message1 = `Their commitment to tackling crucial topics with creativity and determination truly deserves this honor. We extend our heartfelt appreciation for their hard work and excellence.`;
     const wrappedText1 = pdf.splitTextToSize(message1, 180);
     wrappedText1.forEach((line) => {
       pdf.text(line, 15, yPos);
